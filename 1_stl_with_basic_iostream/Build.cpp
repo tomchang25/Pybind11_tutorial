@@ -13,6 +13,7 @@ PYBIND11_MODULE(STL, m) {   // module import name, module object
     m.def("randomint1D", &randomint1D);
     m.def("zeros2D", &zeros2D);
     m.def("test", &test, py::call_guard<py::scoped_ostream_redirect, py::scoped_estream_redirect>());
+    m.def("test_pure", &test);
 }
 
 

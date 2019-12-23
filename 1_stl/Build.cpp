@@ -3,6 +3,7 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/iostream.h>
+#include <pybind11/stl.h>
 namespace py = pybind11;
 
 PYBIND11_MODULE(STL, m) {   // module import name, module object
@@ -16,7 +17,7 @@ PYBIND11_MODULE(STL, m) {   // module import name, module object
     });
 
     m.doc() = "STL tutorial";      // module doc string 
-    m.def("randomint1d", &randomint1d);
+    m.def("randomint1D", &randomint1D);
     m.def("zeros2D", &zeros2D);
 }
 

@@ -1,10 +1,6 @@
 #include "STL.h"
 
-void print(string str) {
-    cout << str << endl;
-}
-
-vector<int> randomint1d(int low, int high, int size){
+vector<int> randomint1D(int low, int high, int size){
     // First create an instance of an engine.
     random_device rnd_device;
     // Specify the engine and distribution.

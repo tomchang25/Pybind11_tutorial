@@ -14,5 +14,5 @@ using namespace std;
 
 void print(string str);
 void write(string str);
-vector<int> randomint1d(int low, int high, int size);
+vector<int> randomint1D(int low, int high, int size);
 vector<vector<int>> zeros2D(tuple<int, int> shape);

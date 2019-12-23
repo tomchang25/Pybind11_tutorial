@@ -8,11 +8,11 @@ namespace py = pybind11;
 
 PYBIND11_MODULE(STL, m) {   // module import name, module object
     // redirct stdout to py::stdout
-    m.doc() = "STL tutorial";      // module doc string 
+    py::add_ostream_redirect(m);
+
     m.def("randomint1D", &randomint1D);
     m.def("zeros2D", &zeros2D);
-    m.def("test", &test);
+    m.def("test", &test, py::call_guard<py::scoped_ostream_redirect, py::scoped_estream_redirect>());
 }
 
-py::add_ostream_redirect(m, "ostream_redirect");
 

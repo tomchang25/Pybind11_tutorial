@@ -4,11 +4,11 @@ Ipybind:=`python3 -m pybind11 --includes`
 
 project:=SimpleNumpy
 
-src:=&(project).cpp
+src:=$(project).cpp
 build:=Build.cpp
 
-exe:=&(project).exe
-so:=&(project)`python3-config --extension-suffix`
+exe:=$(project).exe
+so:=$(project)`python3-config --extension-suffix`
 
 python:
 	$(CC) $(build) $(src) -o $(so) -O3 -Wall -shared -std=c++17 -fPIC -D USE_PYTHON $(Ipybind)

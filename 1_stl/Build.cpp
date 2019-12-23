@@ -13,13 +13,9 @@ PYBIND11_MODULE(STL, m) {   // module import name, module object
             std::cout,                               // std::ostream&
             py::module::import("sys").attr("stdout") // Python output
         );
-        call_noisy_func();
     });
 
     m.doc() = "STL tutorial";      // module doc string 
     m.def("randomint1D", &randomint1D);
     m.def("zeros2D", &zeros2D);
 }
-
-...
-

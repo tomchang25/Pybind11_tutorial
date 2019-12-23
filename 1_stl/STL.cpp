@@ -27,7 +27,7 @@ vector<vector<int>> zeros2D(tuple<int,int> shape){
 
 
 int main(){
-    for ( const auto &row : randomint1d(-5,88,7) )
+    for ( const auto &row : randomint1D(-5,88,7) )
     {
         cout << row << " ";
     }

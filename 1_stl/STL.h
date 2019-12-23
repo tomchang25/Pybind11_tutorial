@@ -12,6 +12,7 @@ using namespace std;
     namespace py = pybind11;
 #endif
 
+void test();
 void print(string str);
 void write(string str);
 vector<int> randomint1D(int low, int high, int size);

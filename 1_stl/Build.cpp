@@ -13,6 +13,7 @@ PYBIND11_MODULE(STL, m) {   // module import name, module object
             std::cout,                               // std::ostream&
             py::module::import("sys").attr("stdout") // Python output
         );
+        call_noisy_func();
     });
 
     m.doc() = "STL tutorial";      // module doc string 

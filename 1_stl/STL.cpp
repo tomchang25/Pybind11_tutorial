@@ -32,6 +32,8 @@ void test(){
 
 
 int main(){
+    test();
+    
     for ( const auto &row : randomint1D(-5,88,7) )
     {
         cout << row << " ";

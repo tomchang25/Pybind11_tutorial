@@ -18,4 +18,6 @@ PYBIND11_MODULE(STL, m) {   // module import name, module object
     m.doc() = "STL tutorial";      // module doc string 
     m.def("randomint1D", &randomint1D);
     m.def("zeros2D", &zeros2D);
+    m.def("test", &test);
 }
+

@@ -25,6 +25,11 @@ vector<vector<int>> zeros2D(tuple<int,int> shape){
     vector<int>(n,0));
 }
 
+void test(){
+    cout << "hello "
+         << "world!" << endl;
+}
+
 
 int main(){
     for ( const auto &row : randomint1D(-5,88,7) )

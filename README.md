@@ -20,4 +20,3 @@ Use `Test.ipython` to see final result.
 [official pybind11 doc](https://pybind11.readthedocs.io/en/stable/index.html) © pybind11
 ```
 
-

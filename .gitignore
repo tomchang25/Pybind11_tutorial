@@ -3,3 +3,4 @@
 *.exe
 *.so
 */.ipynb_checkpoints/*
+0_raw/*

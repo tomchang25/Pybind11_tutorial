@@ -2,3 +2,4 @@
 0_helloworld/HelloWorld.exe
 *.exe
 *.so
+*/.ipynb_checkpoints/*

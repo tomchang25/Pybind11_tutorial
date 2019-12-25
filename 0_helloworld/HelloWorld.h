@@ -1,4 +1,3 @@
-// pybind11_exp.cpp
 #include <iostream>
 using namespace std;
 
@@ -7,7 +6,6 @@ using namespace std;
     namespace py = pybind11;
 #endif
 
-void print(string str);
-
 int add(int i, int j);
 void echo(string str);
+void test();

@@ -1,5 +1,5 @@
-// pybind11_exp.cpp
 #include "HelloWorld.h"
+
 
 void print(string str) {
     #ifndef USE_PYTHON
@@ -17,13 +17,8 @@ int add(int i, int j) {
 
 void echo(string str) {
     print(str);
-
-    return;
 }
 
-// Test function is work or not
-int main(){
-    cout << add(1, 3) << endl;
-    echo("Hello world");
-    return 0;
+void test(){
+    print("Hello world!");
 }

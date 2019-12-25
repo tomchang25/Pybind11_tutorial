@@ -25,10 +25,11 @@ int main(){
     cout << endl;
 
     cout << "Repeat three time Array3: " << endl;
-    cout << repeat(arr3,{0,3,2},3) << endl;
+    cout << repeat(arr3,3) << endl;
     cout << endl;
-    /*
-    auto arr4 = xt::random::randint<int>({10, 10},0,20);
+    
+    // WARNING: if you don't specific var type, it will be xt::random array and change
+    xt::xarray<double> arr4 = xt::random::randint<int>({10, 10},0,20);
     cout << "Array4: " << endl;
     cout << arr4 << endl;
     cout << endl;
@@ -36,6 +37,7 @@ int main(){
     cout << "Croped array4: " << endl;
     cout << RandomCrop(arr4,{10,4}) << endl;
     cout << endl;
-    */
+    
+
     return 0;
 }

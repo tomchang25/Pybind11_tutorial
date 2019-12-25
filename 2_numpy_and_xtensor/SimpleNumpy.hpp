@@ -27,9 +27,8 @@ typedef xt::xarray<double> DOUBLE_NUMPY;
 void test();
 DOUBLE_NUMPY sub_val(DOUBLE_NUMPY arr, int num);
 DOUBLE_NUMPY plus_arr(DOUBLE_NUMPY arr1, DOUBLE_NUMPY arr2);
-DOUBLE_NUMPY repeat(DOUBLE_NUMPY arr, vector<size_t> shape, unsigned time);
+DOUBLE_NUMPY repeat(DOUBLE_NUMPY arr, unsigned time);
 DOUBLE_NUMPY RandomCrop(DOUBLE_NUMPY arr, tuple<int,int> shape);
-
 
 void test(){
     cout << "hello "
@@ -44,10 +43,16 @@ DOUBLE_NUMPY sub_val(DOUBLE_NUMPY arr, int num){
 DOUBLE_NUMPY plus_arr(DOUBLE_NUMPY arr1, DOUBLE_NUMPY arr2){
     return arr1 + arr2;   
 }
-DOUBLE_NUMPY repeat(DOUBLE_NUMPY arr,vector<size_t> shape,unsigned time){
-    DOUBLE_NUMPY stack_arr(shape);
 
-    auto new_arr = xt::view(arr, xt::newaxis(), xt::all(), xt::all(), xt::all());
+DOUBLE_NUMPY repeat(DOUBLE_NUMPY arr,unsigned time){
+    // INFO: It's recommand to convert pyarray to xarray, to get stable result.
+    xt::xarray<double> xarr = arr;
+
+    xt::svector<size_t> shape = xarr.shape();
+    shape.insert(shape.begin(), 0);
+    xt::xarray<double> stack_arr(shape);
+
+    xt::xarray<double> new_arr = xt::view(xarr, xt::newaxis(), xt::all(), xt::all(), xt::all());
 
     for (unsigned i = 0; i < time; i++){
         stack_arr = xt::concatenate(xtuple(stack_arr, new_arr), 0);
@@ -55,12 +60,12 @@ DOUBLE_NUMPY repeat(DOUBLE_NUMPY arr,vector<size_t> shape,unsigned time){
 
     return stack_arr;
 }
-/*
-DOUBLE_NUMPY RandomCrop(DOUBLE_NUMPY arr, tuple<int,int> shape){
-    //TODO: BUG, crop array is not in origin array
 
-    int h = arr.shape(0);
-    int w = arr.shape(1);
+DOUBLE_NUMPY RandomCrop(DOUBLE_NUMPY arr, tuple<int,int> shape){
+    xt::xarray<double> xarr = arr;
+
+    int h = xarr.shape(0);
+    int w = xarr.shape(1);
 
     int new_h = get<0>(shape) ;
     int new_w = get<1>(shape);
@@ -81,7 +86,6 @@ DOUBLE_NUMPY RandomCrop(DOUBLE_NUMPY arr, tuple<int,int> shape){
         left = rand()%(w - new_w);
     }
 
-    cout << top << " " << left << " " << new_h << " " << new_w << " " << endl;
-    return xt::view(arr, xt::range(top,top + new_h), xt::range(left,left + new_w));
+    return xt::view(xarr, xt::range(top,top + new_h), xt::range(left,left + new_w));
 }
-*/
+
